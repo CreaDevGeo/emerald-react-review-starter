@@ -56,9 +56,9 @@ function App () {
   return (
     <div className="App">
       <h2>Add Creature</h2>
-      <CreatureForm addCreature={addCreature} />
+      <CreatureForm addCreature={addCreature}/>
       <h2>All Creatures</h2>
-      <CreatureList creatureList={creatureList} />
+      <CreatureList creatureList={creatureList} fetchCreatures={fetchCreatures}/>
     </div>
   );
 
