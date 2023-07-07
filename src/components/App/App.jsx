@@ -27,6 +27,26 @@ function App () {
       });
   }
 
+  // Function to add a new creature to the database
+  const addCreature = (newCreatureName, newCreatureOrigin) => {
+    axios({
+      method: 'POST',
+      url: '/creature',
+      data: {
+        name: newCreatureName,
+        origin: newCreatureOrigin,
+        favorite: false
+      }
+    })
+      .then( (response) => {
+        console.log('Response:', response);
+        fetchCreatures();
+      })
+      .catch(function (error) {
+        console.log('Error on add:', error);
+      });
+  }
+
   // Call function so it runs once on component load
   // Similar to jQuery's document ready
   useEffect( () => {

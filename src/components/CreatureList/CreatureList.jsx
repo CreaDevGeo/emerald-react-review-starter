@@ -2,12 +2,8 @@ import Creature from '../Creature/Creature';
 
 function CreatureList({ creatureList }) {
     return (
-        // {creatureList.map...} needs to be in JSX to work, so we need a fragment or div wrapper here
-        <>
-            {creatureList.map(creature => {
-                return (<Creature creature={creature}/>)
-            })}
-        </>
+        // This is where we'll display a Creature component for every creature in the list
+        <div>Creature list goes here!</div>
     )
 }
 
