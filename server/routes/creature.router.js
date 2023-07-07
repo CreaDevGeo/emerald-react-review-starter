@@ -38,4 +38,32 @@ router.post('/', (req, res) => {
 })
 
 
+router.put('/:id', (req, res) => {
+    const id = req.params.id;
+    const query = `UPDATE creatures SET favorite=TRUE WHERE id=$1`;
+    pool.query(query, [id])
+    .then((result) => {
+        console.log(`favorited creature with id ${req.params.id}`);
+        res.sendStatus(200);
+    }).catch((error) => {
+        console.log(`Error making database query ${query}`, error);
+        res.sendStatus(500);
+    });
+});
+
+router.delete('/:id', (req, res) => {
+    const id = req.params.id;
+    const query = `DELETE FROM creatures WHERE id=$1`;
+    pool.query(query, [id])
+    .then((result) => {
+        console.log(`deleted creature with id ${req.params.id}`);
+        res.sendStatus(200);
+    }).catch((error) => {
+        console.log(`Error making database query ${query}`, error);
+        res.sendStatus(500);
+    });
+});
+
+
+
 module.exports = router;
